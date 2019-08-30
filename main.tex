@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\newcommand{\chapsubhead}[1]{{\Large #1 \vspace{2ex}}}
+\newcommand{\chaptype}[1]{{\Large \itshape (#1) \vspace{2ex}}}
+\title{Learning Journal}
+\author{Lauren Franks }
+\date{FOAR705}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Data Organization in Spreadsheets for Social Scientists}
+\addcontentsline{toc}{section}{1.1 Formatting data tables in spreadsheets}
+\chapsubhead{1.1 Formatting data tables in spreadsheets}\\
+\textbf{Exercise 1:}\newline
+
+Objective: To clean up messy data sheets using Open Refine\\
+Action: Opened OpenRefine software, uploaded SAFI Messy data set and created new project.\\
+Error: Realised that I lack sufficient expertise in OpenRefine to proceed.\\ 
+Result: Returned to excel.\\
+
+Objective: Identify problems with data set\\
+Action: Reviewed data carpentry literature for guidance and identified following errors:
+Colourful cells, misspellings, inconsistent recording styles, empty cells where there should be zeros, uses multiple sheets, uses multiple tables, uses symbolic formatting to show information, uses white space.\\
+Result: successful identification of errors.\newline
+
+Objective: To clean up Mozambique data according to previously identified problems
+Actions:
+\begin{enumerate}
+\item Created new sheet in Excel and copy pasted data for Mozambique
+\item Added new column for ‘inc barn’ and removed coloured cell
+\item Moved ‘livestock’ and ‘plots’ graph to separate columns adjacent to dwelling graph
+\item Created four separate columns for poultry, oxen, cows and goats
+\item Created separate columns for ‘water use’ and ‘water use summer only’
+\end{enumerate}
+Errors identified in data:
+\begin{itemize}
+\item Key id 6 amount/type of livestock is not clear in original data set
+\item Meaning of ‘look after cows’ column is unclear in original data set as it seems to directly contradict information in original ‘livestock owned and numbers’ column which suggests that key id 2, 4, 5, and 9 all have cows
+\item Both livestock and plot data from key id 10 is omitted entirely from original data set
+\end{itemize}
+
+Result:
+Data is much clearer to read, however errors listed above are unable to be sufficiently addressed without further information from original researchers. \\
+
+Objective: To clean up Tanzania data according to previously identified problems\\
+Action: Copy pasted data for Tanziania into cleaned data tab on spreadsheet\\
+Result: Success\\
+Action: Created new column for the country to differentiate between key id locations in Tanzania and Mozambique\\
+Result: Success\\
+Action: Created new column for ‘inc cowshed’\\
+Result: Success\\
+
+Errors identified in data:
+\begin{itemize}
+\item Unsure if ‘burntbricks’ and ‘sunbricks’ refer to the same value
+\end{itemize}
+\begin{itemize}
+\item Key id 16 says it has 1 poultry, 1 oxen and 1 goat and yet a total of 4 livestock
+\item Key id 18 says it have a total of 1 livestock but does not list which kind
+\item No livestock data for key id 20
+\item No data for plots
+\end{itemize}
+Solutions:
+\begin{itemize}
+\item Added column ‘livestock unspecified’  
+\item I have opted to leave spaces black where data is unavailable as this is the best null value according to the Data Carpentry website.
+\end{itemize}
+Results:
+\begin{itemize}
+\item Saved sheet as a new excel spreadsheet called 'SAFI messy fixed Franks2019'
+\item Data is much clearer to read, however there remain some missing values as I was unable to deduce the answers from the available data. To fully complete data set would require discussion with original researchers. 
+\end{itemize}
+
+\textbf{Exercise 2:}\\
+Objective: Identify what types of metadata should be recorded from the regarding the data set.\\
+Action: I discussed with Ellen about what types of metadata should be recorded. As per the Data Carpentry website, we concluded that some types of metadata that should be recorded and made available with the data are:
+\begin{itemize}
+\item the exact wording of questions used in the interviews (if interviews were structured) or general prompts used (if interviews were semi-structured)
+\item a description of the type of data allowed in each column (e.g. the allowed range for numerical data with a restricted range, a list of allowed options for categorical variables, whether data in a numerical column should be continuous or discrete)
+\item definitions of any categorical variables (e.g. definitions of “burntbricks” and “sunbricks”) 
+\item definitions of what was counted as a “room”, a “plot”, etc. (e.g. was there a minimum size)
+\end{itemize}
+
+\textbf{Two examples of problem data produced in politics and international relations:}
+\begin{enumerate}
+\item Adam Smith, 18th century philosopher and arguably the founder of modern economic theory, wrote that barter was a precursor to money. Despite there being no evidence for this claim it appears in many politics and economics textbooks. A similar false claim is ‘trickle down economics’, this flawed idea is used as data to back up flawed arguments.
+\item 	Data bias in policing is a political issue. \newline
+\end{enumerate}
+
+\addcontentsline{toc}{section}{1.2 Dates as data}
+\chapsubhead{1.2 Dates as data}\\
+\textbf{Exercise 1:}\newline 
+Objective: To separate dates into components in a spread sheet\\
+Action:	Download and open dates excel file\\
+Result: Success\\
+Action: Created 3 new columns for day, month and year and separated dates into those columns\\ 
+Result: Success\\
+Action: Tried to used the automated functions on excel to input the days.\\
+Error: It put a whole date in instead of the day.\\
+Solution: I chose to enter the days manually into excel as there weren’t too many, however, this is not an acceptable solution for the future and I will need to revisit this.\\
+
+\addcontentsline{toc}{section}{1.3 Quality assurance}
+\chapsubhead{1.3 Quality assurance}\newline
+Objective: Apply data validation rule to restrict data to a specific numeric range\\
+Action: followed instructions on website and didn’t have any issues.\\
+Objective: Save excel file as csv file\\
+Error: Cannot save csv with multiple worksheets\\
+Solution: Saved both sheets as separate csv files.\\
+
+\section{The Unix Shell}
+\addcontentsline{toc}{section}{2.1 Introducing the Shell}
+\chapsubhead{2.1 Introducing the Shell}\\
+Objective: Use GitBash to list content of directory\\
+Action: Typed ls\\ 
+Result: Successfully listed directory\\
+
+\addcontentsline{toc}{section}{2.2 Navigating Files and Directories}
+\noindent\chapsubhead{2.2 Navigating Files and Directories}
+
+Objective: Learn to navigate using the shell\\
+Action: Used ls (list directory contents), cd (change directory), and pwd (tells you where you are) \\
+Result: It worked.\\
+
+\addcontentsline{toc}{section}{Using LaTex and Overleaf}
+\chapsubhead{Using LaTex and Overleaf}\\
+Objective: Make code stand out in LaTex document\\
+Action: Tried \ command\\
+Result: Successfully highlighted code\\
+Error: However overleaf through I wanted to use the command\\
+
+\addcontentsline{toc}{section}{uMatrix}
+\chapsubhead{uMatrix}\\
+Objective: Install uMatrix \\
+Action: Used install on chromestore\\
+Result: Success\\
+
+Objective: Figure out why uMatrix is blocking my email (outlook.com) and how to unblock it\\\
+Action: Pressed disable/enable matrix filtering for this scope and refreshed page\\
+Result: It worked to get me to the login page\\
+Errors: I had to press disable/enable matrix filtering for this scope and refresh the page several times in order to get through to my email. \\
+
+Objective: Figure out how to use whitelist function on uMatrix
+
+
+
+\end{document}
