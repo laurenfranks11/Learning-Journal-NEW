@@ -1,5 +1,17 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+ 
+\urlstyle{same}
+
+\usepackage{graphicx}
+
 \newcommand{\chapsubhead}[1]{{\Large #1 \vspace{2ex}}}
 \newcommand{\chaptype}[1]{{\Large \itshape (#1) \vspace{2ex}}}
 \title{Learning Journal}
@@ -125,15 +137,26 @@ Objective: Learn to navigate using the shell\\
 Action: Used ls (list directory contents), cd (change directory), and pwd (tells you where you are) \\
 Result: It worked.\\
 
-\addcontentsline{toc}{section}{Using LaTex and Overleaf}
-\chapsubhead{Using LaTex and Overleaf}\\
+\section{Latex and Overleaf}
+
 Objective: Make code stand out in LaTex document\\
-Action: Tried \ command\\
-Result: Successfully highlighted code\\
+Action: Tried \begin{verbatim}
+    \verbatim
+\end{verbatim}\\
+Result: Successfully emphasised code\\
 Error: However overleaf through I wanted to use the command\\
 
-\addcontentsline{toc}{section}{uMatrix}
-\chapsubhead{uMatrix}\\
+\section{uBlock Origin}
+
+Objective: Install uBlock Origin\\
+Action: Used install on chromestore\\
+Result: Success\\
+
+Objective: Figure out what functions of uBlock Origin do\\
+Action: Read application wiki located at \href{https://github.com/gorhill/uBlock/wiki}{https://github.com/gorhill/uBlock/wiki} 
+Result: Success, able to determine what basic function do and how to use them.
+
+\section{uMatrix}\\
 Objective: Install uMatrix \\
 Action: Used install on chromestore\\
 Result: Success\\
@@ -143,7 +166,66 @@ Action: Pressed disable/enable matrix filtering for this scope and refreshed pag
 Result: It worked to get me to the login page\\
 Errors: I had to press disable/enable matrix filtering for this scope and refresh the page several times in order to get through to my email. \\
 
-Objective: Figure out how to use whitelist function on uMatrix
+\section{Trocker}
+Objective: Install Trocker \\
+Action: Used install on chromestore\\
+Result: Success\\
+
+
+
+\section{GitHub Pages}\\
+Objective: Set up static webpage using Git Hub pages\\
+Action: Following instructions on \href{https://pages.github.com/}{https://pages.github.com/}, I created a new repository called laurenfranks11.github.io and cloned it to Github Desktop.\\
+Error: Github desktop was unable to find the repository.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{github desktop error.jpg}
+\end{figure}
+\newpage
+Objective: Set up static webpage using Github pages\\
+Action: Used the command shell instead of Github Desktop.
+\newline
+\begin{verbatim}
+Lauren@Laptop MINGW64 ~ (master)
+$ git clone https://github.com/laurenfranks11/laurenfranks11.github.io
+Cloning into 'laurenfranks11.github.io'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done. 
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0 
+Unpacking objects: 100% (3/3), done.
+
+Lauren@Laptop MINGW64 ~ (master)
+$ cd laurenfranks11.github.io
+\\
+Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
+$ echo "Hellow World" > index.html
+\\
+Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
+$ git add --all
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
+$ git commit -m "Initial commit"
+[master 26e4422] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+
+Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
+$ git push -u origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 315 bytes | 52.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/laurenfranks11/laurenfranks11.github.io
+   c9149a8..26e4422  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+\end{verbatim}
+
+\noindent Result: \href{https://laurenfranks11.github.io./}{https://laurenfranks11.github.io./} successfully created and contains the contents of the html file I created, complete with spelling mistake. 
+
 
 
 
