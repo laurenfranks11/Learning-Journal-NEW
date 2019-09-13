@@ -137,6 +137,82 @@ Objective: Learn to navigate using the shell\\
 Action: Used ls (list directory contents), cd (change directory), and pwd (tells you where you are) \\
 Result: It worked.\\
 
+\section{OpenRefine}
+
+To open Open Refine, open openrefine.exe and then go to http://127.0.0.1:3333/ (may need to wait a little while after opening the .exe file for the web link to work)\newline 
+
+\addcontentsline{toc}{section}{3.1 Working with OpenRefine}
+\chapsubhead{3.1 Working with OpenRefine}\\
+Objective: Apply filters to view facet groups in Open Refine\\
+Action: Clicked down arrow on village column and chose Facet, Text facet. \\
+Result: Success. Was able to filter and see unique value in the village column along with a number representing how many times that value occurs in the column.\\
+Errors: None. \newline
+
+Objective: Identify problems with data set?\\
+Action: Reviewed data using facet filters as above.\\
+Result: Many misspellings including ‘Chirdozo’ which should be ‘Chirodzo’, ‘Ruca’ which should be ‘Ruaca’. \newline
+
+Objective: Use faceting to find how many different interview\textunderscore date values are in the survey results.\\
+Action: Clicked down arrow on interview\textunderscore date column and chose Facet, Text facet.\\
+Result: Success, panel on left shows there are 19 choices (values).\newline
+
+Objective: Convert column from text to date.\\
+Action: Clicked down arrow on interview\textunderscore date column, Edit cells, Common transforms, To date.\\
+Result: Success, changed to date value. You can see that the data was collected in 2016.\newline
+
+Objective: Use ‘clustering’ to identify possible typing errors/inconsistencies. \\
+Action: Clicked cluster on the village Text Facet, chose key collision method and metaphone3 keying function which identified two clusters. Ticked the Merge? box beside each one, Merge Selected and Recluster.\\
+Result: Success. \newline
+
+Objective: Correct errors in data set that clustering did not fix.\\
+Action: Hovered over ‘Ruaca-Nhamuenda’,  Edit, and changed to Ruaca.\\ Hovered over ‘Chirdozo’ , Edit and changed to ‘Chirodzo’. 
+Result: Success, I now have only four clusters. \newline
+
+Objective: Remove single quote marks ( ‘ ), right square brackets ( ] ) and spaces from the items\textunderscore owned column.\\
+Action: Clicked down arrow on items \textunderscoreowned column. Chose Edit Cells ,  Transform... Entered value.replace("]", "")  into the expression box and clicked OK. Repeated with value.replace("’", "")  and value.replace(" ", "") \\
+Result: Success, items\textunderscore owned column is now separated by semicolons.\newline
+  
+
+Objective: Determine what the two most commonly owned items are.\\
+Action: Clicked the down arrow on items\textunderscore owned column. Chose Facet ,  Custom text facet... Typed type value.split(";") in the expression box and clicked OK. On new text facet box clicked Sort by: count.\\
+Result: Success, two most commonly owned items are mobile phones and radios (86 each).\newline
+
+
+Objective: Clean up and customise months\textunderscore lack\textunderscore food column to determine which month farmers were most likely to lack food.\\
+Action: Clicked down arrow on months\textunderscore lack\textunderscore food column. Chose Edit Cells ,  Transform... Entered value.replace("[", "").replace("]", "").replace(" ", "").replace("'", "")  into the expression box and clicked OK.  Clicked the down arrow on months\textunderscore lack\textunderscore food column. Chose Facet ,  Custom text facet... Typed type value.split(";") in the expression box and clicked OK. On new text facet box clicked Sort by: count.\\
+Result: Success, November is when farmers are most likely to lack food (71).\newline
+
+Objective: Perform same clean up steps on months\textunderscore no\textunderscore water, liv \textunderscoreowned, res\textunderscore change, and no\textunderscore food\textunderscore mitigation columns.\\
+Action: Clicked down arrow on each of the columns in turn. Chose Edit Cells ,  Transform... Went to History Tab, clicked Reuse on previous command cluster,  Ok.\\
+Result: Success, using history tab much faster than entering commands individually.\newline
+
+
+Objective: Learn how to use undo/redo functions.\\
+Action: Clicked Undo / Redo on left side of scree, went back a few steps and saw when columns still contained special characters. Clicked on some steps to undo/redo actions.\\
+Result: Success. \newline
+
+Objective: Remove blank characters from beginning and end of entries.\\
+Action: Created new text facet by clicking down arrow on respondent\textunderscore wall\textunderscore type column, then Facet, Text facet. Clicked down arrow on respondent\textunderscore wall\textunderscore type column, clicked Edit cells,  Common transforms, Trim leading and trailing whitespace.\\
+Result: Success, there are now only four choices in the text facet.\newline
+
+\addcontentsline{toc}{section}{3.2 Filtering and sorting with OpenRefine}
+\noindent\chapsubhead{3.2 Filtering and sorting with OpenRefine}\\
+Objective: Use filtering to work on only a subset of data.\\
+Action: Clicked down arrow on respondent\textunderscore roof\textunderscore type ,  Text filter. Typed mabat into the  respondent\textunderscore roof\textunderscore type facet and pressed enter. Change the view at the top of page to Show 50 rows. Created new text facet by clicking down arrow on respondent\textunderscore roof\textunderscore type column, then Facet, Text facet.\\
+Result: Success, roof types show mabatipitched and mabatisloping. To restrict to only one of these values I could include more letters in the filter.\newline
+
+Objective: Use include/exclude to select only one of these roof types (either mabatipitched or mabatisloping)\\
+Action: Hovered over ‘mabatipitched’ on the text facet on the left side and clicked Include.\\
+Result: Success, I am now only seeing rows with mabatisloping values. I can also do the same steps to exclude one or the other.\newline
+
+Objective: Use sort function to sort data by gps\textunderscore Altitude\\
+Action: Clicked down arrow on gps:Altitude column, Sort... ,  numbers and selected smallest first. \\
+Result: Success, the zero value on many of the entries suggests that the data is missing. \newline
+
+Objective: Use sorting of GPS data to determine which village ‘49’ is.\\
+Action: Sorted gps\textunderscore Longitude and gps\textunderscore Lattitude as a number with the largest first. Clicked down arrow on village column, clicked Edit column ,  Move column to end. Scrolled down to village 49. \\
+Result: Success, it belongs to a cluster of interviews in Chirodzo. 
+
 \section{Latex and Overleaf}
 
 Objective: Make code stand out in LaTex document\\
@@ -144,7 +220,13 @@ Action: Tried \begin{verbatim}
     \verbatim
 \end{verbatim}\\
 Result: Successfully emphasised code\\
-Error: However overleaf through I wanted to use the command\\
+Error: However overleaf through I wanted to use the command\newline
+
+Objective: Figure out how to use underscore (\textunderscore ) symbol\\
+Action: \begin{verbatim}
+    \textunderscore 
+\end{verbatim}
+Result: Success.
 
 \section{uBlock Origin}
 
