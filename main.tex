@@ -211,7 +211,51 @@ Result: Success, the zero value on many of the entries suggests that the data is
 
 Objective: Use sorting of GPS data to determine which village ‘49’ is.\\
 Action: Sorted gps\textunderscore Longitude and gps\textunderscore Lattitude as a number with the largest first. Clicked down arrow on village column, clicked Edit column ,  Move column to end. Scrolled down to village 49. \\
-Result: Success, it belongs to a cluster of interviews in Chirodzo. 
+Result: Success, it belongs to a cluster of interviews in Chirodzo.\newline
+
+\addcontentsline{toc}{section}{3.3 Examining numbers in OpenRefine}
+\noindent\chapsubhead{3.3 Examining numbers in OpenRefine}
+
+Objective: Transform text values to number values.\\
+Action: Clicked down arrow on years\textunderscore farm column, \textgreater Edit cells  \textgreater Common transforms… \textgreater To number.\\
+Result: Success, values changed from left-justified to right-justified, and black to green in colour.\newline
+
+Objective: Transform no\textunderscore members, yrs \textunderscore liv, and buildings\textunderscore in\textunderscore compound, from text to numbers.\\
+Action: As above, clicked down arrow on columns, \textgreater Edit cells  \textgreater Common transforms… \textgreater To number.\\
+Result: Success. Unable to transform columns without numeric values into numbers, such as the village column.\newline
+
+Objective: Find non-number values or blanks in a column.\\
+Action: Replaced a number in buildings\textunderscore in\textunderscore compound with `abc’. Created a numeric facet using down arrow. Unchecked numeric checkbox on facet to display the row I changed to ‘`abc’.\\
+Result: Successfully found non-number value.\newline
+
+\addcontentsline{toc}{section}{3.4 Using Scripts}
+\noindent\chapsubhead{3.4 Using Scripts}\\
+Objective: Save work as a JSON (JavaScript Object Notation) script.\\
+Action: Selected Undo\Redo section and clicked Extract… Copied code from right side into a .txt file called SAFI\textunderscore openrefine\textunderscore script.\\
+Result: Success.\newline
+
+Objective: Import JSON script to use against another dataset.\\
+Action: Created new project on openrefine using original data set called SAFI\textunderscore openrefine\textunderscore version2. Went to undo/redo \textgreater Apply \textgreater pasted script from text file.\\
+Result: Success, new project now has identical edits to original. \newline
+
+\addcontentsline{toc}{section}{3.5 Exporting and Saving Data from OpenRefine}
+\noindent\chapsubhead{3.5 Exporting and Saving Data from OpenRefine}
+
+OpenRefine automatically saves projects continuously as you work.\newline
+
+Objective: Export my project.\\
+Action: Clicked Export \textgreater Export project \textgreater Export to local. Used 7-Zip to expand tar.gz file.\\
+Result: Success, there is a history folder and a data.zip file.\newline
+
+Objective: Export cleaned data rather than whole project.\\
+Action: Clicked Export \textgreater Comma-separated value.\\
+Result: Success, able to open project in Excel spreadsheets. \newline
+
+\addcontentsline{toc}{section}{3.6 Other Resources in OpenRefine}
+\noindent\chapsubhead{3.6 Other Resources in OpenRefine}
+
+I visited OpenRefine’s Wikipedia page https://en.wikipedia.org/wiki/OpenRefine. I learnt that it was previously a Google run project but is now open source. I shared this with Jeremy. 
+
 
 \section{Latex and Overleaf}
 
@@ -226,7 +270,13 @@ Objective: Figure out how to use underscore (\textunderscore ) symbol\\
 Action: \begin{verbatim}
     \textunderscore 
 \end{verbatim}
-Result: Success.
+Result: Success.\newline
+
+Objective: Figure out how to do greater than symbol (\textgreater )\\
+Action: \begin{verbatim}
+     \textgreater
+\end{verbatim} 
+Result: Success
 
 \section{uBlock Origin}
 
