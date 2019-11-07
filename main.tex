@@ -276,8 +276,17 @@ Objective: Figure out how to do greater than symbol (\textgreater )\\
 Action: \begin{verbatim}
      \textgreater
 \end{verbatim} 
-Result: Success
+Result: Success\newline
 
+Objective: Exclude name of .jpg file when inserting in overleaf\\
+Action: Put quotation marks (") around file name but \textit{not} around .jpg, for example: 
+\begin{verbatim}
+    \begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{"Webpage with stock image".jpg}
+\end{figure}
+\end{verbatim}
+Result: Success
 \section{uBlock Origin}
 
 Objective: Install uBlock Origin\\
@@ -311,7 +320,7 @@ Action: Following instructions on \href{https://pages.github.com/}{https://pages
 Error: Github desktop was unable to find the repository.
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=15cm]{github desktop error.jpg}
+    \includegraphics[width=15cm]{"github desktop error".jpg}
 \end{figure}
 \newpage
 Objective: Set up static webpage using Github pages\\
@@ -356,9 +365,192 @@ To https://github.com/laurenfranks11/laurenfranks11.github.io
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 \end{verbatim}
 
-\noindent Result: \href{https://laurenfranks11.github.io./}{https://laurenfranks11.github.io./} successfully created and contains the contents of the html file I created, complete with spelling mistake. 
+\noindent Result: \href{https://laurenfranks11.github.io./}{https://laurenfranks11.github.io./} successfully created and contains the contents of the html file I created, complete with spelling mistake.\\ 
 
+\section{Jekyll}
+Objective: Run Ruby Installer \\
+Action: went to https://rubyinstaller.org/downloads/ and installed Ruby+Devkit 2.6.X (x64)  \\
+Result: Success\\
 
+Objective: Set up Jekyll\\
+Action: Used git bash shell and followed setup instructions on https://jekyllrb.com/docs/ \\
+Result: Success\\
 
+Objective: Change theme of webpage\\
+Action: Entered 'Theme: Swiss' under the theme section in the config.yml file using Atom code editor.\\ 
+Result: Success\\
+
+Objective: Open website using shell command 'serve Jekyll in directory laurenfrankks.github.io\\
+Action: Opened gitbash in directory and entered 'jekyll serve' command \\
+Error: Website wouldn't open, received following error:
+\begin{verbatim}
+Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
+$ jekyll serve
+Configuration file: none
+            Source: C:/Users/Lauren/laurenfranks11.github.io
+       Destination: C:/Users/Lauren/laurenfranks11.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-05-07-documentation.md does not exist.
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-09-no-image.markdown does not exist.
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-10-elements.markdown does not exist.
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-12-usage.markdown does not exist.
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-13-welcome-to-jekyll.markdown does not exist.
+     Build Warning: Layout 'post' requested in myblog/_posts/2019-10-07-welcome-to-jekyll.markdown does not exist.
+     Build Warning: Layout 'default' requested in myblog/404.html does not exist.
+     Build Warning: Layout 'page' requested in myblog/about.markdown does not exist.
+     Build Warning: Layout 'page' requested in myblog/cards-master/cards-master/about.md does not exist.
+     Build Warning: Layout 'page' requested in myblog/cards-master/cards-master/contact.md does not exist.
+     Build Warning: Layout 'default' requested in myblog/cards-master/cards-master/index.html does not exist.
+     Build Warning: Layout 'home' requested in myblog/index.markdown does not exist.
+  Conversion error: Jekyll::Converters::Scss encountered an error while converting 'myblog/cards-master/cards-master/css/main.scss':
+                    Error: File to import not found or unreadable: bootstrap-readable. on line 44:1 of main.scss >> @import ^
+                    ------------------------------------------------
+      Jekyll 4.0.0   Please append `--trace` to the `serve` command
+                     for any additional information or backtrace.
+                    ------------------------------------------------
+\end{verbatim}
+
+Action: Went to Brian for help. He installed some gemfiles I was missing and told me that I had all of my blog files within multiple other files like a babushka doll. Instructed me to move them all back to the root directory.\\
+Error: Still unable to load website using 'Jekyll serve' command. Booked meeting with Brian\\
+
+Objective: Get Jekyll to work with desired theme.\\
+Action: Decided to start fresh: deleted everything from local folder laurenfranks11.github.io except for folder 'git' \\ 
+Went to http://jekyllthemes.org/themes/webjeda-cards/ and downloaded theme zip file \\
+Unzipped contents of folder into laurenfranks11.github.io\\
+Entered command 'Jekyll serve' in gitbash.\\
+Result: Success.\\
+
+Objective: Change stock images on webpage.
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{"Webpage with stock image".jpg}
+\end{figure}
+\newline
+Action: Downloaded desired image and saved in on local drive under laurenfranks11.github.io/images. Called file \begin{verbatim}
+    woman_looking_at_computer.jpg
+\end{verbatim}
+Opened page in atom \begin{verbatim}
+C:\Users\Lauren\laurenfranks11.github.io\_posts\2016-06-13-welcome-to-jekyll.markdown\end{verbatim}
+Changed name on image on line 6 to new image name.\\
+Result: Success
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{"New stock images".jpg}
+\end{figure}
+\newline
+\\
+\\
+Objective: Change name of blog\\
+Action: Edited title under \begin{verbatim}
+    C:\Users\Lauren\laurenfranks11.github.io\_config.yml\end{verbatim} 
+Result: Success \\
+
+Objective: Change size of image so that it line up neatly on the webpage display\\
+Action: Opened target image in mspaint (long live mspaint) and resized image by changing pixels to 4000x2500\\
+Result: Success, with only unnoticeable image warping.\\
+
+Objective: Change the date on posts so it doesn't look like they were all written in 2016.\\ 
+Action: Removed the date category from the front matter of the post.\\
+Error: Computer said no. Requires a valid data in the filename.\\
+Action: Changed the data to today's date instead, accounting for American date formatting.\\
+Result: Success, date on posts is visible as today's date.\\
+
+Objective: Add text to post.\\
+Action: Entered text beneath front matter of post in Atom.\\
+Error: It didn't show up on webpage.\\
+Action: Pressed save and refreshed the page.\\
+Result: Success.\\
+
+Objective: Remove sidebar link to Facebook because I don't trust Zuckerberg.\\
+Action: Go to includes folder in atom and moved fb-script.html to trash\\
+Error: No.\\
+Action: Restored fb-script.html from trash and deleted contents of script.\\
+Error: Computer said okay and removed the fancy facebook graphics and 'Like' box but kept a text link to facebook.\\
+Action: Used the GUI to search all places where fb-script appears. Committed to Github, deleted all instantiations of fb-script, prayed.\\
+Error: Same as previously, computer didn't complain but text link remains.\\
+Action: Went to sidebar.html in includes folder and removed following code: 
+\begin{verbatim}
+    </div>
+        {% if site.fb-like-box %}
+        <div class="mt10">
+            <div class="fb-page" data-href="https://www.facebook.com/webjeda/" data-width="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webjeda/" class="fb-xfbml-parse-ignore"><a href="{{site.fb-page-url}}">{{site.fb-page-title}}</a></blockquote></div>
+        </div>
+        {% endif %}
+        <br>
+\end{verbatim}
+Result: Victory.
+
+Objective: Remove remaining social media links to Twitter and Facebook below posts and on homepage.\\
+Action: Tried removing the following from footer.html:
+\begin{verbatim}
+    <div class="col-md-4 text-center mt25">
+               {% if site.facebook %}
+                <a target="_blank" href="{{site.facebook}}"><li class="social facebook"><i class="fa fa-facebook-square"></i></li></a> 
+                {% endif %}
+               {% if site.quora %}
+                <a target="_blank" href="{{site.quora}}"><li class="social quora"><i class="fa fa-quora"></i></li></a>
+                {% endif %}
+               {% if site.twitter %}
+                <a target="_blank" href="{{site.twitter}}"><li class="social twitter"><i class="fa fa-twitter-square"></i></li></a>
+                {% endif %}
+\end{verbatim}
+Error: Nothing happened even though I deleted a bunch of code.\\
+Action: Tried removing \textit{all} the code from footer.html\\
+Result: Nothing again, realised that I was editing the footer for the homepage while looking for results on a post page. So partial success as it's all gone from the homepage footer. Restored the links to Twitter, Email and Github on the homepage but removed the ones to Quora and Facebook and the copyright notice saying it was made by Webjeda. I think this is ethical as the copyright licence still remains as a markdown file.\\
+
+Note: I realised that the social media links at the bottom of post pages is part of the \textit{Disqus} widget that is embedded in the template to allow comments. I think I want people to be able to comment so I will leave it\\
+
+Objective: Link the buttons on the homepage to my email/twitter/github rather than to template creator (Webjeda).\\
+Action: Figured out I could search in Atom rather than using the GUI, found the list of Webjeda's details under #social in the config.yml page. Changed them to my details and deleted Facebook and Quora.\\
+Result: Success.\\
+
+Objective: Change the default post image to a general privacy-related one.\\
+Action: Went to config.yml and changed default-image to: \begin{verbatim}private_eye.jpg.\end{verbatim}\\ 
+Result: Success\\
+
+Objective: Remove links in top right corner to download the theme\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=5cm]{"theme download button".jpg}
+\end{figure}
+\newline
+Action: Went to header.html and removed code:
+\begin{verbatim}
+    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="https://github.com/sharu725/cards">Project</a></li>
+            <li><a href="https://github.com/sharu725/cards/archive/master.zip">Download</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a target="_blank" href="https://jekyll-themes.com">More Themes</a></li>
+\end{verbatim}
+Result: Success
+
+Objective: Edit the contents of the About link in the top right corner.
+Action: Went to about.md under my blog and edited text.
+Result: Success.
+
+\section{Atom}
+Error: I have to re-install Atom every time I want to use it.\\
+Action: Googled 'I have to re-install Atom every time I want to use it'\\
+Result: Success. Found out that Atom hides itself in a folder location C/Programdata/Lauren/atom. I have created a desktop shortcut at this location. \\
+
+Objective: Commit changes to github\\
+Action: Pressed 'stage all' changes on github tab on right side of Atom page.\\
+Entered commit message and pressed 'commit to master'\\
+Result: Success\\
+
+Objective: Create a new post on webpage\\
+Action: Tried to create one using shell command but it didn't work. \\
+Right clicked on posts directory in atom and clicked new file. This didn't work either as it became a regular file not a markdown file.\\
+Right clicked on posts directory in atom and clicked new file. This time I named it 2019-20-10-why-browser-privacy-matters.md.\\
+Result: Success. Also, .md and .markdown are both filename extensions for markdown files.\\
+
+\section{BrowserStack}
+
+Objective: Use browser stack \href{https://www.browserstack.com/}{https://www.browserstack.com/} to test my webpage and ensure it will work on other devices/browsers. \\
+Action: Created free account on the browser stack website and clicked manual testing. Selected an Apple Mac running Mojave OS (2nd most recent OS, most recent was not available) running Firefox browser version 68.0. Loaded my webpage.\\
+Result: Success, all functionality is visible and working including pages and links.  
 
 \end{document}
