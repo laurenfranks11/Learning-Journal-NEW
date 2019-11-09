@@ -18,6 +18,8 @@
 \author{Lauren Franks }
 \date{FOAR705}
 
+\usepackage{minted}
+
 \begin{document}
 
 \maketitle
@@ -256,6 +258,77 @@ Result: Success, able to open project in Excel spreadsheets. \newline
 
 I visited OpenRefine’s Wikipedia page https://en.wikipedia.org/wiki/OpenRefine. I learnt that it was previously a Google run project but is now open source. I shared this with Jeremy. 
 
+\section{R for Social Scientists}
+\addcontentsline{toc}{section}{4.1 Before We Start}
+\chapsubhead{4.1 Before We Start}\\
+
+Objective: Create a new project in RStudio\\
+Action: Clicked new project under File menu, chose New directory, then New project named data-carpentry.\\ Clicked Create project. Went to File > New File > R script. Clicked save icon and saved script as “script.R”.\\
+Result: Success\\
+
+Objective: Create directories\\
+Action: Used commands dir.create("data") dir.create ("data-output") dir.create("fig-output")\\
+Result: Success\\
+
+Objective: Install ‘tidyverse’ package\\
+Action: Clicked Install on the packages tab, and entered tidyverse and enter.\\
+Result: Success\\
+
+\chapsubhead{4.2 Introduction to R}\\
+Objective: Create two variables length and width and assign values to them.\\
+Action: Entered length 2.5, width, 3.2, area, length * width area. Output 8. \\
+Result: Success\\
+
+Objective: Type in ?round the console and then look at the output in the Help pane.\\
+Action: Typed ?round\\
+Result: Success, output was ceiling, floor, trunc, round, signif.\\
+
+Objective: Using this vector of rooms, create a new vector with the NAs removed. rooms c(1, 2, 1, 1, NA, 3, 1, 3, 2, 1, 1, 8, 3, 1, NA, 1)\\
+Action: Used median function.\\
+Result: Success\\
+
+
+\chapsubhead{4.3 Starting with Data}\\
+
+Objective: Create a data frame (interviews-100) containing only the data in row 100 of the interviews dataset.\\
+Action: Copied solution provided:
+\begin{minted}[breaklines]{R}
+    ## 1. interviews_100 <- interviews[100, ] ## 2. # Saving `n_rows` to improve readability and reduce duplication n_rows <- nrow(interviews) interviews_last <- interviews[n_rows, ] ## 3. interviews_middle <- interviews[(n_rows / 2), ] ## 4. interviews_head <- interviews[-(7:n_rows), ]
+\end{minted}
+Result: Success\\
+
+Objective: Recreate the barplot such that “Undetermined” is last (after “Yes”)\\
+Action: Copied solution provided:
+\begin{minted}[breaklines]{R}
+    levels(memb_assoc) <- c("No", "Undetermined", "Yes")
+memb_assoc <- factor(memb_assoc, levels = c("No", "Yes", "Undetermined"))
+plot(memb_assoc)
+\end{minted}
+Result: Success\\
+
+
+\chapsubhead{4.4 Introducing dplyr and tidyr}\\
+
+Objective: Using pipes, subset the interviews data to include interviews where respondents were members of an irrigation association (memb-assoc) and retain only the columns affect-conflicts, liv-count, and no-meals.\\
+Action: Copied solution provided:
+\begin{minted}[breaklines]{R}
+    interviews %>%
+    filter(memb_assoc == "yes") %>%
+    select(affect_conflicts, liv_count, no_meals)
+\end{minted}
+Result: Success.\\
+
+Objective: Create new data frame from interviews data that contains only village column and a new column called total-meals containing a value that is equal to the total number of meals served in the household per day on average (no-membrs times no-meals).
+Action: Copied solution provided:
+\begin{minted}[breaklines]{R}
+    interviews_total_meals <- interviews %>%
+    mutate(total_meals = no_membrs * no_meals) %>%
+    filter(total_meals > 20) %>%
+    select(village, total_meals)
+\end{minted}
+Result: Success.\\
+
+\noindent* Copied code solutions given for all remaining exercises and all were successful. 
 
 \section{Latex and Overleaf}
 
@@ -325,8 +398,8 @@ Error: Github desktop was unable to find the repository.
 \newpage
 Objective: Set up static webpage using Github pages\\
 Action: Used the command shell instead of Github Desktop.
-\newline
-\begin{verbatim}
+
+\begin{minted}[breaklines]{bash}
 Lauren@Laptop MINGW64 ~ (master)
 $ git clone https://github.com/laurenfranks11/laurenfranks11.github.io
 Cloning into 'laurenfranks11.github.io'...
@@ -363,7 +436,7 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/laurenfranks11/laurenfranks11.github.io
    c9149a8..26e4422  master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
-\end{verbatim}
+\end{minted}
 
 \noindent Result: \href{https://laurenfranks11.github.io./}{https://laurenfranks11.github.io./} successfully created and contains the contents of the html file I created, complete with spelling mistake.\\ 
 
@@ -383,7 +456,7 @@ Result: Success\\
 Objective: Open website using shell command 'serve Jekyll in directory laurenfrankks.github.io\\
 Action: Opened gitbash in directory and entered 'jekyll serve' command \\
 Error: Website wouldn't open, received following error:
-\begin{verbatim}
+\begin{minted}[breaklines]{bash}
 Lauren@Laptop MINGW64 ~/laurenfranks11.github.io (master)
 $ jekyll serve
 Configuration file: none
@@ -395,7 +468,8 @@ Configuration file: none
      Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-09-no-image.markdown does not exist.
      Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-10-elements.markdown does not exist.
      Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-12-usage.markdown does not exist.
-     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-13-welcome-to-jekyll.markdown does not exist.
+     Build Warning: Layout 'post' requested in myblog/cards-master/cards-master/_posts/2016-06-13
+     -welcome-to-jekyll.markdown does not exist.
      Build Warning: Layout 'post' requested in myblog/_posts/2019-10-07-welcome-to-jekyll.markdown does not exist.
      Build Warning: Layout 'default' requested in myblog/404.html does not exist.
      Build Warning: Layout 'page' requested in myblog/about.markdown does not exist.
@@ -409,7 +483,7 @@ Configuration file: none
       Jekyll 4.0.0   Please append `--trace` to the `serve` command
                      for any additional information or backtrace.
                     ------------------------------------------------
-\end{verbatim}
+\end{minted}
 
 Action: Went to Brian for help. He installed some gemfiles I was missing and told me that I had all of my blog files within multiple other files like a babushka doll. Instructed me to move them all back to the root directory.\\
 Error: Still unable to load website using 'Jekyll serve' command. Booked meeting with Brian\\
@@ -470,20 +544,21 @@ Error: Computer said okay and removed the fancy facebook graphics and 'Like' box
 Action: Used the GUI to search all places where fb-script appears. Committed to Github, deleted all instantiations of fb-script, prayed.\\
 Error: Same as previously, computer didn't complain but text link remains.\\
 Action: Went to sidebar.html in includes folder and removed following code: 
-\begin{verbatim}
+\begin{minted}[breaklines]{bash}
     </div>
         {% if site.fb-like-box %}
         <div class="mt10">
-            <div class="fb-page" data-href="https://www.facebook.com/webjeda/" data-width="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webjeda/" class="fb-xfbml-parse-ignore"><a href="{{site.fb-page-url}}">{{site.fb-page-title}}</a></blockquote></div>
+            <div class="fb-page" data-href="https://www.facebook.com/webjeda/" data-width="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/webjeda/" class="fb-xfbml-parse-ignore"><a href="{{site.fb-page-url}}">{{site.fb-page-title}}</a>
+            </blockquote></div>
         </div>
         {% endif %}
         <br>
-\end{verbatim}
-Result: Victory.
+\end{minted}
+Result: Victory.\\
 
 Objective: Remove remaining social media links to Twitter and Facebook below posts and on homepage.\\
 Action: Tried removing the following from footer.html:
-\begin{verbatim}
+\begin{minted}[breaklines]{bash}
     <div class="col-md-4 text-center mt25">
                {% if site.facebook %}
                 <a target="_blank" href="{{site.facebook}}"><li class="social facebook"><i class="fa fa-facebook-square"></i></li></a> 
@@ -494,7 +569,7 @@ Action: Tried removing the following from footer.html:
                {% if site.twitter %}
                 <a target="_blank" href="{{site.twitter}}"><li class="social twitter"><i class="fa fa-twitter-square"></i></li></a>
                 {% endif %}
-\end{verbatim}
+\end{minted}
 Error: Nothing happened even though I deleted a bunch of code.\\
 Action: Tried removing \textit{all} the code from footer.html\\
 Result: Nothing again, realised that I was editing the footer for the homepage while looking for results on a post page. So partial success as it's all gone from the homepage footer. Restored the links to Twitter, Email and Github on the homepage but removed the ones to Quora and Facebook and the copyright notice saying it was made by Webjeda. I think this is ethical as the copyright licence still remains as a markdown file.\\
@@ -516,20 +591,61 @@ Objective: Remove links in top right corner to download the theme\\
 \end{figure}
 \newline
 Action: Went to header.html and removed code:
-\begin{verbatim}
+\begin{minted}[breaklines]{bash}
     <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a target="_blank" href="https://github.com/sharu725/cards">Project</a></li>
-            <li><a href="https://github.com/sharu725/cards/archive/master.zip">Download</a></li>
+            <li><a href="https://github.com/sharu725/cards/archive/
+            master.zip">Download
+            </a></li>
             <li role="separator" class="divider"></li>
             <li><a target="_blank" href="https://jekyll-themes.com">More Themes</a></li>
-\end{verbatim}
-Result: Success
+\end{minted}
+Result: Success\\
 
-Objective: Edit the contents of the About link in the top right corner.
-Action: Went to about.md under my blog and edited text.
+Objective: Edit the contents of the About link in the top right corner.\\
+Action: Went to about.md under my blog and edited text.\\
+Result: Success.\\
+
+Objective: Make headings in posts\\
+Action: Found the following list of headings: 
+\begin{verbatim}
+    <h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+\end{verbatim}
 Result: Success.
+
+Objective: Create table in a post\\
+Action: Used following script in posts:
+\begin{verbatim}
+    <h4>TLDR; Overview of Privacy Extensions</h4>
+
+| Extension   |      Benefits/Functions      |  Cost |
+|-------------|:----------------------------:|------:|
+|uBlock Origin|List of functions             | free  |
+| LastPass    |    List of functions         |subscription|
+| Trocker     | List of functions            |  free |
+{: .table .table-striped .table-hover}
+\end{verbatim}
+Result: Success\\
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{"table".jpg}
+\end{figure}
+\newline
+
+Objective: Hide post from appearing on website in order to make drafts\\
+Action: Deleted data from name of post and in front matter of post.\\
+Result: Success. If I put the data back it reappears. \\
+
+Objective: Create link on website to another post.\\
+Action: Tried using instructions \href{https://jekyllrb.com/docs/liquid/tags/#linking-to-posts}{here}\\
+Result: Anger. Defeat.
 
 \section{Atom}
 Error: I have to re-install Atom every time I want to use it.\\
